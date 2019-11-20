@@ -1,11 +1,13 @@
 <template>
   <div>
     <div id="contentContainer">
-      <img id="profitsImg "src="@/assets/profits.png">
+      <div id="profitsImg">
+        
+      </div>
 
       <div id="questionSection">
         <h1>Firstly...</h1>
-        <h2 style="margin-bottom: 70px;">Answer a few question to get you started</h2>
+        <h2 style="margin-bottom: 50px;">Answer a few question to get you started</h2>
         <ol>
           <li v-for="question in questions"><span>{{question}}</span>
             <slider @updateItemValues="updateValues"/>
@@ -13,6 +15,8 @@
         </ol>
       </div>
     </div>
+
+    <button id="thing">All Tech Roles</button>
   </div>
 </template>
 
@@ -75,10 +79,30 @@
   
 <style>
   h1, h2, p, ol{
-      font-family: 'Oxygen', sans-serif;;
+      font-family: 'Oxygen', sans-serif;
       margin: 0;
       padding: 0;
     }
+
+  #profitsImg{
+    width: 600px;
+    height: 600px;
+    background-image: url("../../assets/profits.png");
+    background-repeat: no-repeat;
+  }
+
+  #thing{
+    width: 250px;
+    height: 50px;
+    background-color: #42b883;
+    margin-left: 255px;
+    transform: translateY(-90px);
+    border-radius: 5px;
+    font-family: 'Oxygen', sans-serif;
+    color: white;
+    font-size: 18px;
+    outline: none;
+  }
 
   ol{
     width: 450px;
@@ -92,6 +116,10 @@
     counter-increment: listNumCounter;
   }
 
+   li:nth-last-child(1){
+    margin-bottom: 0;
+  }
+
   li::before{
     content: counter(listNumCounter) ". ";
     color: #42b883;
@@ -103,8 +131,8 @@
   }
 
   #questionSection h1{
-     color: #42b883;
-      font-size: 62px;
+    color: #42b883;
+    font-size: 62px;
   }
 
   #questionSection h2{

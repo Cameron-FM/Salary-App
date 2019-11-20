@@ -49,6 +49,7 @@ export default {
     background: #ff7e67;
     display: flex;
     justify-content: center;
+    border-radius: 5px;
   }
 
   #nextBtn a{
