@@ -1,7 +1,5 @@
 <template>
   <div>
-    <navBar :currentPage="currentPage" @switchPage="switchPage"/>
-
     <div id="contentContainer">
       <img id="profitsImg "src="@/assets/profits.png">
 
@@ -19,14 +17,13 @@
 </template>
 
 <script>
-  import navBar from '@/components/nav.vue'
   import slider from '@/components/landingPage/slider.vue'
 
   export default {
     name: 'landingPage', 
     props: ['currentPage'],
     components: {
-      navBar, slider
+      slider
     },
 
     data: () => {
@@ -39,13 +36,6 @@
       this.$nextTick(() => {
         this.questions = ["Who is Suraj?", "Who is Cameron?", "What is Camraj Inc?"]
       })
-    },
-
-    methods: {
-      switchPage: () => {
-        console.log("yh")
-        this.$emit("switchPage", "infoPage")
-      }
     }
   }
 </script>

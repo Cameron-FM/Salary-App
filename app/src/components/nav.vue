@@ -3,7 +3,7 @@
       <div id="logo">
         Salary Chart
       </div>
-      <button v-if="currentPage === 'landingPage'" v-on:click="switchPage" >hey</button>
+      <button v-if="currentPage === 'landingPage'" v-on:click="switchPage" >Next</button>
     </div>
 </template>
 
@@ -13,11 +13,11 @@ export default {
   props: ['currentPage'],
 
   methods: {
-    switchPage: (event) => {
-      this.$emit("switchPage", "infoPage")
+    switchPage: function() {
+      console.log("yh")
+      this.$emit("switchPage", 'infoPage')
     }
-  },
-
+  }
 }
 </script>
   

@@ -1,8 +1,9 @@
 <template>
   <div id="app">
+    <navBar @switchPage="openPageComponent" :currentPage="currentPage"/>
 
     <template v-if = "currentPage === 'landingPage'">
-      <landingPage @switchPage="openPageComponent" :currentPage="currentPage"/>
+      <landingPage :currentPage="currentPage"/>
     </template>
 
   </div>
@@ -10,11 +11,12 @@
 
 <script>
   import landingPage from './components/landingPage/landingPage.vue'
+  import navBar from '@/components/nav.vue'
 
   export default {
     name: 'app',
     components: {
-      landingPage
+      landingPage, navBar
     },
 
     data: () => {
@@ -25,6 +27,7 @@
 
     methods: {
       openPageComponent: function(page){
+        
         this.currentPage = page
       }
     }
