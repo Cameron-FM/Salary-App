@@ -1,6 +1,6 @@
 <template>
-    <div class="slidecontainer">
-        <span><input v-model.number="value" type="range" min="0" max="100" step="20" class="slider" id="sliderContainer"> </span>
+    <div class="slidecontainer" >
+        <span><input v-model.number="value" type="range" min="0" max="100" step="50" class="slider" id="sliderContainer"> </span>
         <p>{{value}} </p>
     </div>
 </template>
@@ -9,11 +9,22 @@
 export default {
   name: 'slider',
 
-  data: () => {
-      return{
-          value: 50
-      }
-  }
+    data: () => {
+        return{
+          value: 50,
+          itemValues: []
+        }
+    },
+
+    watch: {
+        value: function () {
+            let items = document.querySelectorAll(".slider")
+            for(let i=0; i < items.length; i++){
+                this.itemValues[i] = items[i].value
+            }
+            this.$emit("updateItemValues", this.itemValues)
+        }
+    }
 }
 </script>
   

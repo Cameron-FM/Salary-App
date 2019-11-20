@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <navBar @switchPage="openPageComponent" :currentPage="currentPage"/>
+    <navBar @nextBtnClicked="nextBtnClicked" :nextPageLink="nextPageLink" :currentPage="currentPage"/>
 
     <template v-if = "currentPage === 'landingPage'">
-      <landingPage :currentPage="currentPage"/>
+      <landingPage @nextPageLink="generateLink" :nextPageLink="nextPageLink" :currentPage="currentPage" :nextBtnIsClicked="nextBtnIsClicked"/>
     </template>
 
   </div>
@@ -21,14 +21,23 @@
 
     data: () => {
       return{
-        currentPage: "landingPage"
+        currentPage: "landingPage",
+        nextBtnIsClicked: false,
+        nextPageLink: ""
       }
     },
 
     methods: {
       openPageComponent: function(page){
-        
         this.currentPage = page
+      },
+
+      nextBtnClicked: function(data){
+        this.nextBtnIsClicked = true
+      },
+
+      generateLink: function(link){
+        this.nextPageLink = link
       }
     }
     

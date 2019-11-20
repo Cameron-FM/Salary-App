@@ -3,19 +3,20 @@
       <div id="logo">
         Salary Chart
       </div>
-      <button v-if="currentPage === 'landingPage'" v-on:click="switchPage" >Next</button>
+      <div id="nextBtn" v-on:click="switchPage">
+        <a v-if="currentPage === 'landingPage'" :href="nextPageLink">Next</a>
+      </div>
     </div>
 </template>
 
 <script>
 export default {
   name: 'navBar',
-  props: ['currentPage'],
+  props: ['currentPage', 'nextPageLink'],
 
   methods: {
     switchPage: function() {
-      console.log("yh")
-      this.$emit("switchPage", 'infoPage')
+      this.$emit("nextBtnClicked", true)
     }
   }
 }
@@ -23,7 +24,7 @@ export default {
   
 <style>
   #navBar{
-    background-color: #42b883;
+    background-color: #35495e;
     width: 100%;
     height: 50px; 
   }
@@ -39,7 +40,27 @@ export default {
     text-align: center;
   }
 
-  button{
+  #nextBtn{
     float: right;
+    margin-top: 5px;
+    margin-right: 10px;
+    width: 80px;
+    height: 40px;
+    background: #ff7e67;
+    display: flex;
+    justify-content: center;
+  }
+
+  #nextBtn a{
+    font-family: 'Oxygen', sans-serif;
+    color: #35495e;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 8px;
+    font-size: 18px;
+    display: inline-block;
+    width:100%;
+    height:100%;
   }
 </style>

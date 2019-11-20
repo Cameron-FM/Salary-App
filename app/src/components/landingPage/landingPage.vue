@@ -8,7 +8,7 @@
         <h2 style="margin-bottom: 70px;">Answer a few question to get you started</h2>
         <ol>
           <li v-for="question in questions"><span>{{question}}</span>
-            <slider/>
+            <slider @updateItemValues="updateValues"/>
           </li>
         </ol>
       </div>
@@ -21,21 +21,54 @@
 
   export default {
     name: 'landingPage', 
-    props: ['currentPage'],
+    props: ['currentPage', 'nextBtnIsClicked'],
     components: {
-      slider
+      slider,
+      itemValues: []
     },
 
     data: () => {
       return {
-        questions: []
+        questions: [],
+        nextPageID: 1,
+        itemValues: []
       }
     },
 
     mounted () {
       this.$nextTick(() => {
-        this.questions = ["Who is Suraj?", "Who is Cameron?", "What is Camraj Inc?"]
+        this.questions = ["Would you rather deal with small details or the big picture? ", "What would your priority be, Quality or Time?", "Are you likely to plan for something in advance?"]
       })
+    },
+
+    methods: {
+      updateValues: function(items){
+          this.itemValues = items
+        }
+      },
+
+    watch: {
+      nextBtnIsClicked: function(){
+        let newLink = "https://stealth-mole.glitch.me/role/1"
+        if(this.itemValues[0] === "50" && this.itemValues[1] === "50" && this.itemValues[2] === "100"){
+          newLink = "https://stealth-mole.glitch.me/role/1"//Product Manager
+        }else if(this.itemValues[0] === "50" && this.itemValues[1] === "50" && this.itemValues[2] === "50"){
+          newLink = "https://stealth-mole.glitch.me/role/2"//UX
+        }else if(this.itemValues[0] === "0" && this.itemValues[1] === "0" && this.itemValues[2] === "0"){
+          newLink = "https://stealth-mole.glitch.me/role/3"//Software Engineer
+        }else if(this.itemValues[0] === "100" && this.itemValues[1] === "100" && this.itemValues[2] === "100"){
+          newLink = "https://stealth-mole.glitch.me/role/4"//Project Manager
+        }else if(this.itemValues[0] === "50" && this.itemValues[1] === "50" && this.itemValues[2] === "0"){
+          newLink = "https://stealth-mole.glitch.me/role/5"//Data Analyst
+        }else if(this.itemValues[0] === "0" && this.itemValues[1] === "50" && this.itemValues[2] === "50"){
+          newLink = "https://stealth-mole.glitch.me/role/6"//Solutions Architect
+        }else if(this.itemValues[0] === "0" && this.itemValues[1] === "50" && this.itemValues[2] === "0"){
+          newLink = "https://stealth-mole.glitch.me/role/7"//Technical Consultant
+        }else if(this.itemValues[0] === "50" && this.itemValues[1] === "0" && this.itemValues[2] === "0"){
+          newLink = "https://stealth-mole.glitch.me/role/8"//Systems Engineer
+        }
+        this.$emit("nextPageLink", newLink)
+      }
     }
   }
 </script>
@@ -48,6 +81,7 @@
     }
 
   ol{
+    width: 450px;
     list-style: none;
     counter-reset: my-awesome-counter
   }
