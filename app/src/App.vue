@@ -3,7 +3,11 @@
     <navBar @nextBtnClicked="nextBtnClicked" :nextPageLink="nextPageLink" :currentPage="currentPage"/>
 
     <template v-if = "currentPage === 'landingPage'">
-      <landingPage @nextPageLink="generateLink" :nextPageLink="nextPageLink" :currentPage="currentPage" :nextBtnIsClicked="nextBtnIsClicked"/>
+      <landingPage @allRolesClicked="openPageComponent" @nextPageLink="generateLink" :nextPageLink="nextPageLink" :currentPage="currentPage" :nextBtnIsClicked="nextBtnIsClicked"/>
+    </template>
+
+    <template v-if = "currentPage === 'rolesListPage'">
+      <rolesListPage/>
     </template>
 
   </div>
@@ -11,12 +15,13 @@
 
 <script>
   import landingPage from './components/landingPage/landingPage.vue'
+  import rolesListPage from './components/rolesListPage/rolesListPage.vue'
   import navBar from '@/components/nav.vue'
 
   export default {
     name: 'app',
     components: {
-      landingPage, navBar
+      navBar, landingPage, rolesListPage
     },
 
     data: () => {

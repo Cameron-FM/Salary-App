@@ -1,10 +1,8 @@
 <template>
     <div id="navBar">
-      <div id="logo">
-        Salary Chart
-      </div>
-      <div id="nextBtn" v-on:click="switchPage">
-        <a v-if="currentPage === 'landingPage'" :href="nextPageLink">Next</a>
+      <div id="logo"><a href="@components/landingPage/landingPage.vue">Seek Tech</a></div>
+      <div v-if="currentPage === 'landingPage'" id="nextBtn" v-on:click="switchPage">
+        <a :href="nextPageLink">Next</a>
       </div>
     </div>
 </template>
@@ -33,11 +31,15 @@ export default {
     margin-left: 10px;
     margin-top: 6px;
     float: left;
+    font-size: 26px;
+    text-align: center;
+  }
+
+  #logo a{
+    text-decoration: none;
     color: white;
     font-family: 'Oxygen', sans-serif;
-    font-size: 26px;
     font-weight: bold;
-    text-align: center;
   }
 
   #nextBtn{
@@ -63,5 +65,11 @@ export default {
     display: inline-block;
     width:100%;
     height:100%;
+    transition: ease 0.25s;
+  }
+
+  #nextBtn a:hover{
+    cursor: pointer;
+    color: white;
   }
 </style>

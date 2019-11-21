@@ -14,9 +14,9 @@
           </li>
         </ol>
       </div>
+      <button id="allRoles" v-on:click="switchPage">All Tech Roles</button>
     </div>
 
-    <button id="thing">All Tech Roles</button>
   </div>
 </template>
 
@@ -48,8 +48,12 @@
     methods: {
       updateValues: function(items){
           this.itemValues = items
-        }
-      },
+        },
+      
+      switchPage: function(){
+        this.$emit("allRolesClicked", "rolesListPage")
+      }
+    },
 
     watch: {
       nextBtnIsClicked: function(){
@@ -89,19 +93,34 @@
     height: 600px;
     background-image: url("../../assets/profits.png");
     background-repeat: no-repeat;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
   }
 
-  #thing{
+  #allRoles{
     width: 250px;
     height: 50px;
     background-color: #42b883;
-    margin-left: 255px;
     transform: translateY(-90px);
     border-radius: 5px;
     font-family: 'Oxygen', sans-serif;
     color: white;
     font-size: 18px;
     outline: none;
+    border: none;
+    font-weight: 900;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    transition: ease 0.25s;
+  }
+
+  #allRoles:hover{
+    cursor: pointer;
+    color: #35495e;
   }
 
   ol{
@@ -144,11 +163,17 @@
   #contentContainer{
     width: 100%;
     margin-top: 50px;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
   }
 
   #questionSection{
     margin-left: 150px;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
   }
 </style>

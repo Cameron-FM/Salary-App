@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Product Manager",
+        "salary": "200K",
+        "link": "https://stealth-mole.glitch.me/role/1"
+    },
+    {
+        "name": "UX",
+        "salary": "100K",
+        "link": "https://stealth-mole.glitch.me/role/2"
+    },
+    {
+        "name": "Software Engineer",
+        "salary": "200K",
+        "link": "https://stealth-mole.glitch.me/role/3"
+    },
+    {
+        "name": "Project Manager",
+        "salary": "200K",
+        "link": "https://stealth-mole.glitch.me/role/4"
+    },
+    {
+        "name": "Data Analyst",
+        "salary": "200K",
+        "link": "https://stealth-mole.glitch.me/role/5"
+    },
+    {
+        "name": "Solutions Architect",
+        "salary": "200K",
+        "link": "https://stealth-mole.glitch.me/role/6"
+    },
+    {
+        "name": "Technical Consultant",
+        "salary": "200K",
+        "link": "https://stealth-mole.glitch.me/role/7"
+    },
+    {
+        "name": "Systems Engineer",
+        "salary": "200K",
+        "link": "https://stealth-mole.glitch.me/role/8"
+    }
+]
